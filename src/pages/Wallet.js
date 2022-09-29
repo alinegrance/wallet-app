@@ -2,7 +2,11 @@ import React from 'react';
 
 class Wallet extends React.Component {
   render() {
-    return <div>TrybeWallet</div>;
+    return (
+      <div>
+        <h2>Bem vindo a sua carteira</h2>
+      </div>
+    );
   }
 }
 

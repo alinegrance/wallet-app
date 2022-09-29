@@ -1,7 +1,13 @@
 .Login {
   align-items: center;
+  border: 2px solid black;
   display: flex;
   flex-direction: column;
-  padding-top: 100px;
+  margin-top: 150px;
+  padding: 100px;
 }
 
+/* .LoginBox {
+  display: flex;
+  flex-direction: column;
+} */

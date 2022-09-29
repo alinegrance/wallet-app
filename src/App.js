@@ -8,7 +8,6 @@ class App extends React.Component {
   render() {
     return (
       <main className="App">
-        <h1>-Trybewallet-</h1>
         <Switch>
           <Route exact path="/" component={ Login } />
           <Route exact path="/carteira" component={ Wallet } />

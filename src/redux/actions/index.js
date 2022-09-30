@@ -55,7 +55,7 @@ export const expensesWithExchangeTest = (data, state) => ({
 
 export const getExpenseTest = (state) => async (dispatch) => {
   try {
-    dispatch(requestAPI());
+    // dispatch(requestAPI());
     const response = await fetch('https://economia.awesomeapi.com.br/json/all');
     const data = await response.json();
     dispatch(expensesWithExchangeTest(data, state));

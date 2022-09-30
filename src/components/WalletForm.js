@@ -6,11 +6,11 @@ import { getExpenseTest } from '../redux/actions';
 
 class WalletForm extends Component {
   state = {
-    expenseValue: '',
+    value: '',
     description: '',
     currency: 'USD',
-    paymentMethod: 'Dinheiro',
-    expenseTag: 'Alimentação',
+    method: 'Dinheiro',
+    tag: 'Alimentação',
   };
 
   handleChange = ({ target: { name, value } }) => {
@@ -19,34 +19,35 @@ class WalletForm extends Component {
     });
   };
 
-  submitExpense = () => {
+  submitExpense = (e) => {
+    e.preventDefault();
     const { saveExpense } = this.props;
     saveExpense({ ...this.state });
     this.setState({
-      expenseValue: '',
+      value: '',
       description: '',
       currency: 'USD',
-      paymentMethod: 'Dinheiro',
-      expenseTag: 'Alimentação',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
     });
   };
 
   render() {
     const { currencies } = this.props;
-    const { expenseValue, description } = this.state;
+    const { value, description } = this.state;
 
     return (
       <form
         className="WalletForm"
         onSubmit={ this.submitExpense }
       >
-        <label htmlFor="expenseValue">
+        <label htmlFor="value">
           {'Valor: '}
           <input
             data-testid="value-input"
-            id="expenseValue"
-            name="expenseValue"
-            value={ expenseValue }
+            id="value"
+            name="value"
+            value={ value }
             type="text"
             onChange={ this.handleChange }
           />
@@ -77,12 +78,12 @@ class WalletForm extends Component {
             }
           </select>
         </label>
-        <label htmlFor="paymentMethod">
+        <label htmlFor="method">
           {'Método: '}
           <select
             data-testid="method-input"
-            id="paymentMethod"
-            name="paymentMethod"
+            id="method"
+            name="method"
             onChange={ this.handleChange }
           >
             <option value="Dinheiro">Dinheiro</option>
@@ -90,12 +91,12 @@ class WalletForm extends Component {
             <option value="Cartão de débito">Cartão de débito</option>
           </select>
         </label>
-        <label htmlFor="expenseTag">
+        <label htmlFor="tag">
           {'Tag: '}
           <select
             data-testid="tag-input"
-            id="expenseTag"
-            name="expenseTag"
+            id="tag"
+            name="tag"
             onChange={ this.handleChange }
           >
             <option value="Alimentação">Alimentação</option>

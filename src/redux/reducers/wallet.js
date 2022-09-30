@@ -23,6 +23,7 @@ const walletReducer = (state = INITIAL_STATE, action) => {
       nextId: state.nextId + 1,
     };
   default:
+    console.log(state);
     return { ...state };
   }
 };

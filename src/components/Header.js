@@ -9,7 +9,7 @@ class Header extends Component {
     return expenses
       .reduce((acc, expense) => {
         const exchangeRate = +expense.exchangeRates[expense.currency].ask;
-        return (acc + +expense.expenseValue * exchangeRate);
+        return (acc + +expense.value * exchangeRate);
       }, 0).toFixed(2);
   };
 

@@ -4,6 +4,12 @@ import { connect } from 'react-redux';
 import './Header.css';
 
 class Header extends Component {
+  sumExpenses = () => {
+    const { expenses } = this.props;
+    return expenses
+      .reduce((acc, expense) => (acc + +expense.expenseValue), 0).toFixed(2);
+  };
+
   render() {
     const { email } = this.props;
     return (
@@ -13,7 +19,10 @@ class Header extends Component {
           <p data-testid="email-field">{email}</p>
           <p>
             {'Despesa total: '}
-            <span data-testid="total-field">0</span>
+            <span>
+              R$
+              <span data-testid="total-field">{this.sumExpenses()}</span>
+            </span>
           </p>
           <p data-testid="header-currency-field">BRL</p>
         </div>
@@ -24,10 +33,12 @@ class Header extends Component {
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
+  expenses: state.wallet.expenses,
 });
 
 export default connect(mapStateToProps, null)(Header);
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
+  expenses: PropTypes.arrayOf(Object).isRequired,
 };

@@ -40,25 +40,25 @@ class Login extends React.Component {
         <h2>Login</h2>
         <div className="loginBox">
           <label htmlFor="email">
-            {'Email: '}
             <input
               data-testid="email-input"
               id="email"
               type="email"
               value={ email }
               name="email"
+              placeholder="email"
               onChange={ this.handleChange }
             />
           </label>
           <br />
           <label htmlFor="password">
-            {'Password: '}
             <input
               data-testid="password-input"
               id="password"
               type="password"
               value={ password }
               name="password"
+              placeholder="senha"
               onChange={ this.handleChange }
             />
           </label>

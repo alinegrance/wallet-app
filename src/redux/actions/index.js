@@ -6,6 +6,8 @@ export const saveUser = (payload) => ({
   payload,
 });
 
+/// //////////////////////////////////////
+
 export const REQUEST_API = 'REQUEST_API';
 export const GET_RESPONSE = 'GET_RESPONSE';
 export const GET_ERROR = 'GET_ERROR';
@@ -27,10 +29,37 @@ export const getError = (error) => ({
 export const fetchAPI = () => async (dispatch) => {
   try {
     dispatch(requestAPI());
-    const reponse = await fetch('https://economia.awesomeapi.com.br/json/all');
-    const data = await reponse.json();
+    const response = await fetch('https://economia.awesomeapi.com.br/json/all');
+    const data = await response.json();
     dispatch(getResponse(data));
   } catch (error) {
     dispatch(getError(error));
+  }
+};
+
+/// ////////////////////////////////////////////////
+
+export const SAVE_EXPENSE = 'SAVE_EXPENSE';
+
+export const getExpense = (payload) => ({
+  type: SAVE_EXPENSE,
+  payload,
+});
+
+/// ///////////////////////////////////////////////////////////////////////////////////
+
+export const expensesWithExchangeTest = (data, state) => ({
+  type: SAVE_EXPENSE,
+  payload: { ...state, exchangeRates: data },
+});
+
+export const getExpenseTest = (state) => async (dispatch) => {
+  try {
+    dispatch(requestAPI());
+    const response = await fetch('https://economia.awesomeapi.com.br/json/all');
+    const data = await response.json();
+    dispatch(expensesWithExchangeTest(data, state));
+  } catch (e) {
+    dispatch(getError(e));
   }
 };

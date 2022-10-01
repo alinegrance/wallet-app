@@ -6,7 +6,7 @@ export const saveUser = (payload) => ({
   payload,
 });
 
-/// //////////////////////////////////////
+/// ///////////////////////////////////////////////////////////////////////////////
 
 export const REQUEST_API = 'REQUEST_API';
 export const GET_RESPONSE = 'GET_RESPONSE';
@@ -37,7 +37,7 @@ export const fetchAPI = () => async (dispatch) => {
   }
 };
 
-/// ////////////////////////////////////////////////
+/// //////////////////////////////////////////////////////////////////////////////////
 
 export const SAVE_EXPENSE = 'SAVE_EXPENSE';
 
@@ -63,3 +63,12 @@ export const getExpenseTest = (state) => async (dispatch) => {
     dispatch(getError(e));
   }
 };
+
+/// ////////////////////////////////////////////////////////////////////////////////////
+
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
+
+export const deleteExpense = (expenseId) => ({
+  type: DELETE_EXPENSE,
+  payload: expenseId,
+});

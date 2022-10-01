@@ -12,3 +12,8 @@
 .Table td {
   padding: 3px;
 }
+
+.Table button {
+  margin-left: 5px;
+  width: 70px;
+}

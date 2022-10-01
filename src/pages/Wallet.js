@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import WalletForm from '../components/WalletForm';
 import './Wallet.css';
 import { fetchAPI } from '../redux/actions';
+import Table from '../components/Table';
 
 class Wallet extends React.Component {
   componentDidMount() {
@@ -18,6 +19,7 @@ class Wallet extends React.Component {
         <Header />
         <h2>Bem vindo a sua carteira</h2>
         <WalletForm />
+        <Table />
       </div>
     );
   }

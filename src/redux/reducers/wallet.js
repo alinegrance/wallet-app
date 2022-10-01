@@ -9,7 +9,7 @@ const INITIAL_STATE = {
 };
 
 const walletReducer = (state = INITIAL_STATE, action) => {
-  localStorage.setItem(action.type, JSON.stringify(action));
+  // localStorage.setItem(action.type, JSON.stringify(action));
   switch (action.type) {
   case GET_RESPONSE:
     return {
@@ -23,7 +23,7 @@ const walletReducer = (state = INITIAL_STATE, action) => {
       nextId: state.nextId + 1,
     };
   default:
-    console.log(state);
+    // console.log(state);
     return { ...state };
   }
 };

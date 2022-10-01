@@ -1,0 +1,14 @@
+.Table {
+  align-self: center;
+  border: 2px solid black;
+  margin-top: 25px;
+}
+
+.Table th {
+  padding: 10px;
+  width: 175px;
+}
+
+.Table td {
+  padding: 3px;
+}

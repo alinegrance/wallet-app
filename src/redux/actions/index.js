@@ -41,10 +41,10 @@ export const fetchAPI = () => async (dispatch) => {
 
 export const SAVE_EXPENSE = 'SAVE_EXPENSE';
 
-export const getExpense = (payload) => ({
-  type: SAVE_EXPENSE,
-  payload,
-});
+// export const getExpense = (payload) => ({
+//   type: SAVE_EXPENSE,
+//   payload,
+// });
 
 /// ///////////////////////////////////////////////////////////////////////////////////
 
@@ -53,7 +53,7 @@ export const expensesWithExchangeTest = (data, state) => ({
   payload: { ...state, exchangeRates: data },
 });
 
-export const getExpenseTest = (state) => async (dispatch) => {
+export const getExpense = (state) => async (dispatch) => {
   try {
     dispatch(requestAPI());
     const response = await fetch('https://economia.awesomeapi.com.br/json/all');
@@ -71,4 +71,20 @@ export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 export const deleteExpense = (expenseId) => ({
   type: DELETE_EXPENSE,
   payload: expenseId,
+});
+
+/// ///////////////////////////////////////////////////////////////////////////////////
+
+export const EDIT_BTN_ON = 'EDIT_BUTTON_ON';
+
+export const editBtnOn = (expenseId) => ({
+  type: EDIT_BTN_ON,
+  payload: { editor: true, idToEdit: expenseId },
+});
+
+export const EDIT_EXPENSE = 'EDIT_EXPENSE';
+
+export const editStateExpense = (expense) => ({
+  type: EDIT_EXPENSE,
+  payload: expense,
 });
